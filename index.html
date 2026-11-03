@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>
+    /* Sprache: ?lang= vor gespeicherter Wahl, sonst Deutsch. Arabisch läuft von rechts nach links. */
+    (function (d) {
+      var L = ["de", "en", "tr", "ar", "ru"], q = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1], s = null;
+      try { s = localStorage.getItem("wac-lang"); if (L.indexOf(q) > -1) localStorage.setItem("wac-lang", q); } catch (e) {}
+      var lang = L.indexOf(q) > -1 ? q : (L.indexOf(s) > -1 ? s : "de");
+      d.lang = lang;
+      d.dir = lang === "ar" ? "rtl" : "ltr";
+      if (lang !== "de") d.classList.add("i18n-wait");
+      var extra = { ru: "Literata:ital,opsz,wght@0,7..72,200..800;1,7..72,200..800", ar: "Amiri:ital,wght@0,400;0,700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600" }[lang];
+      if (extra) {
+        var l = document.createElement("link");
+        l.rel = "stylesheet";
+        l.href = "https://fonts.googleapis.com/css2?family=" + extra + "&display=swap";
+        document.head.appendChild(l);
+      }
+      setTimeout(function () { d.classList.remove("i18n-wait"); }, 4000);
+    })(document.documentElement);
+  </script>
+  <title data-i18n="meta.title">What about coffee? | Croffles, Açaí Bowls &amp; Frühstück in Berlin Zehlendorf</title>
+  <meta name="description" data-i18n-a="content:meta.desc" content="What about coffee? Kaffee, Croffles, gefüllte Croissants, Açaí und Matcha Bowls, frische Säfte, Smoothies und Frühstück. Berliner Straße 1, 14169 Berlin Zehlendorf.">
+  <meta name="theme-color" content="#170F0B">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="What about coffee? Berlin Zehlendorf">
+  <meta property="og:description" content="Kaffee, Croffles, gefüllte Croissants, Açaí und Matcha Bowls. Berliner Straße 1, 14169 Berlin.">
+  <meta property="og:image" content="https://nadercbz.github.io/what-about-coffee/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/video/ambient-poster-hoch.webp" media="(max-aspect-ratio: 3/4)">
+  <link rel="preload" as="image" href="assets/video/ambient-poster.webp" media="(min-aspect-ratio: 3/4)">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
+
+  <!-- ───────── Preloader ───────── -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__logo">
+      <svg class="loader__base" viewBox="0 0 1000 356"><use href="#logo-wac"/></svg>
+      <svg class="loader__full" viewBox="0 0 1000 356"><use href="#logo-wac"/></svg>
+    </div>
+    <div class="loader__count"><span class="loader__num">0</span><span>%</span></div>
+    <div class="loader__word">brewing</div>
+  </div>
+
+  <!-- ───────── Cursor ───────── -->
+  <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- ───────── Nav ───────── -->
+  <header class="nav">
+    <a href="#top" class="nav__logo" aria-label="What about coffee? Startseite" data-i18n-a="aria-label:a11y.home">
+      <svg class="nav__mark" viewBox="0 0 1000 356" aria-hidden="true"><use href="#logo-wac"/></svg>
+    </a>
+    <nav class="nav__links" aria-label="Hauptnavigation" data-i18n-a="aria-label:a11y.mainnav">
+      <a href="#karte" data-cursor="hover" data-i18n="nav.highlights">Highlights</a>
+      <a href="#speisekarte" data-cursor="hover" data-i18n="nav.karte">Karte</a>
+      <a href="#quiz" data-cursor="hover" data-i18n="nav.quiz">Quiz</a>
+      <a href="#spot" data-cursor="hover" data-i18n="nav.spot">Der Spot</a>
+      <a href="#besuch" data-cursor="hover" data-i18n="nav.besuch">Besuch</a>
+    </nav>
+    <div class="lang">
+      <button class="lang__toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Sprache wählen" data-i18n-a="aria-label:lang.label" data-cursor="hover">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.6 3.6 9s-1.2 6.4-3.6 9c-2.4-2.6-3.6-5.6-3.6-9S9.6 5.6 12 3z"/></svg>
+        <span data-lang-current>DE</span>
+      </button>
+      <div class="lang__menu" id="langMenu">
+        <a data-lang="de" lang="de" href="?lang=de">Deutsch<span>DE</span></a>
+        <a data-lang="en" lang="en" href="?lang=en">English<span>EN</span></a>
+        <a data-lang="tr" lang="tr" href="?lang=tr">Türkçe<span>TR</span></a>
+        <a data-lang="ar" lang="ar" href="?lang=ar">العربية<span>AR</span></a>
+        <a data-lang="ru" lang="ru" href="?lang=ru">Русский<span>RU</span></a>
+      </div>
+    </div>
+    <a class="nav__cta" href="https://www.google.com/maps/dir/?api=1&amp;destination=Berliner+Stra%C3%9Fe+1,+14169+Berlin" target="_blank" rel="noopener" data-cursor="hover">
+      <span class="status-dot" data-status-dot></span><span data-status-short>Route</span>
+    </a>
+    <button class="nav__burger" aria-label="Menü öffnen" data-i18n-a="aria-label:js.menuOpen" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </header>
+
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav class="menu__links" aria-label="Mobile Navigation" data-i18n-a="aria-label:a11y.mobilenav">
+      <a href="#karte" data-i18n="nav.highlights">Highlights</a>
+      <a href="#speisekarte" data-i18n="nav.karte">Karte</a>
+      <a href="#quiz" data-i18n="nav.quiz">Quiz</a>
+      <a href="#croffle" data-i18n="nav.croffle">Croffle</a>
+      <a href="#spot" data-i18n="nav.spot">Der Spot</a>
+      <a href="#reels" data-i18n="nav.reels">Reels</a>
+      <a href="#besuch" data-i18n="nav.besuch">Besuch</a>
+    </nav>
+    <div class="menu__langs" aria-label="Sprache wählen" data-i18n-a="aria-label:lang.label"><a data-lang="de" lang="de" href="?lang=de">DE</a><a data-lang="en" lang="en" href="?lang=en">EN</a><a data-lang="tr" lang="tr" href="?lang=tr">TR</a><a data-lang="ar" lang="ar" href="?lang=ar">AR</a><a data-lang="ru" lang="ru" href="?lang=ru">RU</a></div>
+    <div class="menu__foot">
+      <span>Berliner Straße 1, 14169 Berlin</span>
+      <a href="https://www.instagram.com/whataboutcoffeeberlin/" target="_blank" rel="noopener">@whataboutcoffeeberlin</a>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ───────── Hero ───────── -->
+    <section class="hero" aria-label="Willkommen" data-i18n-a="aria-label:a11y.hero">
+      <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/video/ambient-poster.webp" aria-hidden="true" tabindex="-1"
+        data-quer="assets/video/ambient.mp4" data-hoch="assets/video/ambient-hoch.mp4" data-poster-hoch="assets/video/ambient-poster-hoch.webp"></video>
+      <div class="hero__shade" aria-hidden="true"></div>
+
+      <div class="hero__badge" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <defs><path id="circle" d="M100 100 m-78 0 a78 78 0 1 1 156 0 a78 78 0 1 1 -156 0"/></defs>
+          <text><textPath href="#circle" data-i18n="hero.badge">frisch gemacht · Zehlendorf · seit dem ersten Krümel · </textPath></text>
+        </svg>
+        <span class="hero__badge-q">?</span>
+      </div>
+
+      <div class="hero__content">
+        <p class="eyebrow hero__eyebrow"><span>Berlin Zehlendorf</span><span>Berliner Straße 1</span></p>
+        <h1 class="hero__title" dir="ltr">
+          <span class="hero__line"><span class="hero__line-in">What about</span></span>
+          <span class="hero__line hero__line--rot"><span class="hero__rot" aria-live="polite">coffee?</span></span>
+        </h1>
+        <div class="hero__bottom">
+          <p class="hero__lead" data-i18n="hero.lead">Kaffee, Croffles, gefüllte Croissants, Açaí Bowls, frische Säfte und Frühstück. Frisch gemacht, ehrlich gut und mitten in Zehlendorf.</p>
+          <div class="hero__actions">
+            <a href="#speisekarte" class="btn btn--solid" data-magnetic data-cursor="hover"><span data-i18n="hero.cta">Zur Karte</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Berliner+Stra%C3%9Fe+1,+14169+Berlin" target="_blank" rel="noopener" class="btn btn--ghost" data-magnetic data-cursor="hover"><span data-i18n="cta.route">Route planen</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__foot">
+        <div class="hero__dots" role="tablist" aria-label="Produkt wählen" data-i18n-a="aria-label:a11y.dots">
+          <button role="tab" aria-selected="true" data-i="0" aria-label="Coffee"></button>
+          <button role="tab" aria-selected="false" data-i="1" aria-label="Croffles"></button>
+          <button role="tab" aria-selected="false" data-i="2" aria-label="Croissants"></button>
+          <button role="tab" aria-selected="false" data-i="3" aria-label="Açaí"></button>
+          <button role="tab" aria-selected="false" data-i="4" aria-label="Matcha"></button>
+        </div>
+        <div class="hero__scroll" aria-hidden="true"><span>Scroll</span><i></i></div>
+      </div>
+    </section>
+
+    <!-- ───────── Manifest ───────── -->
+    <section class="manifest" aria-labelledby="manifest-title">
+      <p class="label"><span>(01)</span> <span data-i18n="man.label">Wer wir sind</span></p>
+      <h2 class="manifest__text" id="manifest-title" data-i18n="man.text">
+        Wir sind das Café, das jeder <span class="nw">hasst<span class="pill pill--a"><img src="assets/img/c5_croissant_pistazie_m.webp" alt="" loading="lazy"></span>.</span> Weil man danach überall Krümel hat, nie nur ein Croissant nimmt<span class="pill pill--b"><img src="assets/img/c4_croffle_schoko_m.webp" alt="" loading="lazy"></span> und auf einmal Stammgast <span class="nw">ist<span class="pill pill--c"><img src="assets/img/c8_iced_matcha_m.webp" alt="" loading="lazy"></span>.</span>
+      </h2>
+      <div class="stats">
+        <div class="stat"><span class="stat__num" data-count="3600" data-suffix="+">0</span><span class="stat__txt" data-i18n="man.stat1">Leute folgen uns<br>schon auf Instagram</span></div>
+        <div class="stat"><span class="stat__num" data-count="3">0</span><span class="stat__txt" data-i18n="man.stat2">Fragen auf der Karte:<br>fresh, sweet oder salty?</span></div>
+        <div class="stat"><span class="stat__num stat__num--inf">∞</span><span class="stat__txt" data-i18n="man.stat3">Krümel.<br>Sorry, nicht sorry.</span></div>
+      </div>
+    </section>
+
+    <!-- ───────── Karte ───────── -->
+    <section class="karte" id="karte" aria-labelledby="karte-title">
+      <div class="karte__head">
+        <p class="label"><span>(02)</span> <span data-i18n="karte.label">Unsere Highlights</span></p>
+        <h2 class="karte__title" id="karte-title"><span class="split-lines" data-i18n="karte.t1">Fünf Lieblinge.</span><span class="split-lines" data-i18n="karte.t2"><em>Eine Theke.</em></span></h2>
+      </div>
+
+      <div class="karte__pin" dir="ltr">
+        <div class="karte__track">
+
+          <article class="panel panel--coffee" data-panel="0">
+            <div class="panel__text">
+              <span class="panel__num">01<small>/05</small></span>
+              <h3 class="panel__name">Coffee</h3>
+              <p class="panel__desc" data-i18n="p.coffee.desc">Espresso, Flat White, Iced Latte. Unsere Bohnen bekommen die Zeit, die sie brauchen. Du auch.</p>
+              <ul class="panel__list"><li>Espresso</li><li>Cappuccino</li><li data-i18n="p.milchkaffee">Milchkaffee</li><li>Flat White</li><li>Iced Latte</li></ul>
+            </div>
+            <div class="panel__art">
+              <img class="panel__img panel__img--main" src="assets/img/c10_flat_white_oben.webp" srcset="assets/img/c10_flat_white_oben_m.webp 640w, assets/img/c10_flat_white_oben.webp 1100w" sizes="(max-width: 900px) 80vw, 40vw" alt="Flat White mit Latte Art von oben, Tasse auf Untertasse mit Löffel und Kaffeebohnen" data-i18n-a="alt:alt.c10" loading="lazy">
+              <img class="panel__img panel__img--side" src="assets/img/c1_iced_latte_m.webp" alt="Iced Latte im Becher" data-i18n-a="alt:alt.c1" loading="lazy">
+              <img class="panel__img panel__img--decor" src="assets/img/d1_bohnen_m.webp" alt="" loading="lazy">
+            </div>
+          </article>
+
+          <article class="panel panel--croissant" data-panel="1">
+            <div class="panel__text">
+              <span class="panel__num">02<small>/05</small></span>
+              <h3 class="panel__name" data-i18n="p.croissant.name">Croissants<em>gefüllt</em></h3>
+              <p class="panel__desc" data-i18n="p.croissant.desc">Klassisch oder gefüllt bis zum Rand. Die Frage ist nicht ob, sondern welches. Und ob du teilst. Spoiler: eher nicht.</p>
+              <ul class="panel__list"><li><span data-i18n="p.croissant">Croissant</span> <b data-preis="croissant"></b></li><li><span data-i18n="p.gefuellt">Gefüllt</span> <b data-preis="croissant-gefuellt"></b></li><li data-i18n="p.pistazie">Pistazie</li><li data-i18n="p.schokohasel">Schoko Haselnuss</li></ul>
+            </div>
+            <div class="panel__art">
+              <img class="panel__img panel__img--main" src="assets/img/c5_croissant_pistazie.webp" srcset="assets/img/c5_croissant_pistazie_m.webp 640w, assets/img/c5_croissant_pistazie.webp 1100w" sizes="(max-width: 900px) 80vw, 40vw" alt="Croissant gefüllt mit Pistaziencreme" data-i18n-a="alt:alt.c5" loading="lazy">
+              <img class="panel__img panel__img--side" src="assets/img/c6_croissant_schoko_m.webp" alt="Croissant mit Haselnuss Creme und Crunch" data-i18n-a="alt:alt.c6" loading="lazy">
+              <img class="panel__img panel__img--decor" src="assets/img/d3_pistazien_m.webp" alt="" loading="lazy">
+            </div>
+          </article>
+
+          <article class="panel panel--acai" data-panel="2">
+            <div class="panel__text">
+              <span class="panel__num">03<small>/05</small></span>
+              <h3 class="panel__name">Açaí<em>Bowl</em></h3>
+              <p class="panel__desc" data-i18n="p.acai.desc">Kalt, cremig, tiefviolett. Mit frischen Früchten, Granola und einem Hauch Honig. Sommer zum Löffeln, das ganze Jahr.</p>
+              <ul class="panel__list" data-preise="acai-bowl"><li data-i18n="p.fruechte">Frische Früchte</li><li>Granola</li></ul>
+            </div>
+            <div class="panel__art">
+              <img class="panel__img panel__img--main" src="assets/img/c7_acai.webp" srcset="assets/img/c7_acai_m.webp 640w, assets/img/c7_acai.webp 1100w" sizes="(max-width: 900px) 80vw, 40vw" alt="Açaí Bowl mit Banane, Erdbeeren, Blaubeeren und Granola" data-i18n-a="alt:alt.c7" loading="lazy">
+              <img class="panel__img panel__img--decor panel__img--decor-lg" src="assets/img/d2_beeren_m.webp" alt="" loading="lazy">
+            </div>
+          </article>
+
+          <article class="panel panel--croffle" data-panel="3">
+            <div class="panel__text">
+              <span class="panel__num">04<small>/05</small></span>
+              <h3 class="panel__name">Croffles</h3>
+              <p class="panel__desc" data-i18n="p.croffle.desc">Halb Croissant, halb Waffel, ganz große Liebe. Außen knusprig, innen fluffig, oben drauf, was dein Herz will.</p>
+              <ul class="panel__list"><li>Croffle <b data-preis="croffle"></b></li><li data-i18n="p.pistazie">Pistazie</li><li data-i18n="p.blaubeere">Blaubeere &amp; weiße Schoko</li><li data-i18n="p.schokohasel">Schoko Haselnuss</li></ul>
+            </div>
+            <div class="panel__art">
+              <img class="panel__img panel__img--main" src="assets/img/c4_croffle_schoko.webp" srcset="assets/img/c4_croffle_schoko_m.webp 640w, assets/img/c4_croffle_schoko.webp 1100w" sizes="(max-width: 900px) 80vw, 40vw" alt="Croffle mit Schoko Haselnuss Creme, Erdbeeren und Waffelstücken" data-i18n-a="alt:alt.c4" loading="lazy">
+              <img class="panel__img panel__img--side" src="assets/img/c3_croffle_pistazie_m.webp" alt="Croffle mit Pistaziencreme" data-i18n-a="alt:alt.c3" loading="lazy">
+            </div>
+          </article>
+
+          <article class="panel panel--matcha" data-panel="4">
+            <div class="panel__text">
+              <span class="panel__num">05<small>/05</small></span>
+              <h3 class="panel__name">Matcha<em>Bowl</em></h3>
+              <p class="panel__desc" data-i18n="p.matcha.desc">Grün, cremig und voll mit frischen Toppings. Sieht aus wie Urlaub und ist genau richtig für deine Story. Wir wissen, dass du sie machst.</p>
+              <ul class="panel__list" data-preise="matcha-bowl"><li data-i18n="p.getoppt">Frisch getoppt</li></ul>
+            </div>
+            <div class="panel__art">
+              <img class="panel__img panel__img--main" src="assets/img/m1_matcha_bowl.webp" srcset="assets/img/m1_matcha_bowl_m.webp 600w, assets/img/m1_matcha_bowl.webp 1000w" sizes="(max-width: 900px) 80vw, 40vw" alt="Matcha Bowl mit Banane, Erdbeeren, Blaubeeren, Granola und Kokoschips" data-i18n-a="alt:alt.m1" loading="lazy">
+              <img class="panel__img panel__img--side" src="assets/img/c8_iced_matcha_m.webp" alt="Iced Matcha Latte" data-i18n-a="alt:alt.c8" loading="lazy">
+            </div>
+          </article>
+
+        </div>
+        <div class="karte__progress" aria-hidden="true">
+          <span class="is-on">Coffee</span><span>Croissants</span><span>Açaí</span><span>Croffles</span><span>Matcha</span>
+          <i class="karte__bar"><b></b></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── Ganze Karte (Inhalt aus js/karte-daten.js) ───────── -->
+    <section class="board" id="speisekarte" aria-labelledby="board-title">
+      <div class="board__head">
+        <p class="label"><span>(03)</span> <span data-i18n="board.label">Die ganze Karte</span></p>
+        <h2 class="board__title" id="board-title" dir="ltr"><span class="board__lead">What about something</span> <span class="board__mask"><em class="board__word">fresh?</em></span></h2>
+        <div class="board__tabs" role="tablist" aria-label="Teil der Karte wählen" data-i18n-a="aria-label:a11y.tabs"></div>
+      </div>
+      <div class="board__body">
+        <div class="board__art" aria-hidden="true"></div>
+        <div class="board__panels"></div>
+      </div>
+      <div class="board__foot">
+        <ul class="board__notes"></ul>
+        <div class="board__dl">
+          <a class="board__dl-card" href="assets/menu/What-about-coffee-Karte-DE.pdf" download data-dl data-cursor="hover">
+            <img class="board__dl-cover" src="assets/menu/cover-de.webp" alt="" width="300" height="424" loading="lazy" data-dl-cover>
+            <span class="board__dl-text">
+              <small data-i18n="dl.kicker">Zum Mitnehmen</small>
+              <strong data-i18n="dl.title">Die ganze Karte als PDF</strong>
+              <span data-i18n="dl.txt">Zum Speichern, Teilen oder Ausdrucken.</span>
+              <span class="board__dl-btn"><span data-i18n="dl.btn">Herunterladen</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></span>
+            </span>
+          </a>
+          <p class="board__dl-langs"><span data-i18n="dl.more">Auch in</span> <a data-dl-lang="de" lang="de" href="assets/menu/What-about-coffee-Karte-DE.pdf" download>Deutsch</a><a data-dl-lang="en" lang="en" href="assets/menu/What-about-coffee-Karte-EN.pdf" download>English</a><a data-dl-lang="tr" lang="tr" href="assets/menu/What-about-coffee-Karte-TR.pdf" download>Türkçe</a><a data-dl-lang="ar" lang="ar" href="assets/menu/What-about-coffee-Karte-AR.pdf" download>العربية</a><a data-dl-lang="ru" lang="ru" href="assets/menu/What-about-coffee-Karte-RU.pdf" download>Русский</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── Quiz ───────── -->
+    <section class="quiz" id="quiz" aria-labelledby="quiz-title">
+      <div class="quiz__intro">
+        <p class="label"><span>(04)</span> <span data-i18n="quiz.label">Kurzes Quiz</span></p>
+        <h2 class="quiz__title" id="quiz-title"><span class="split-lines" data-i18n="quiz.t1">Sag mir, wer du bist.</span><span class="split-lines" data-i18n="quiz.t2"><em>Ich sag dir, was du isst.</em></span></h2>
+        <p class="quiz__lead" data-i18n="quiz.lead">Drei Fragen, null Druck. Am Ende weißt du, welches Croissant oder Croffle zu dir passt. Screenshot machen, an der Theke zeigen, fertig.</p>
+      </div>
+      <div class="quiz__box" data-cursor="hover">
+        <div class="quiz__progress" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="quiz__stage" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ───────── Croffle Story ───────── -->
+    <section class="story" id="croffle" aria-labelledby="story-title">
+      <div class="story__head">
+        <p class="label label--light"><span>(05)</span> <span data-i18n="story.label">So entsteht dein Croffle</span></p>
+        <h2 class="story__title" id="story-title"><span class="split-lines" data-i18n="story.t1">Vier Schritte</span><span class="split-lines" data-i18n="story.t2"><em>bis zum ersten Bissen.</em></span></h2>
+      </div>
+      <div class="story__grid">
+        <div class="story__sticky">
+          <div class="story__steps">
+            <div class="step is-active" data-step="0">
+              <span class="step__num">01</span>
+              <h3 class="step__name" data-i18n="story.s1">Pressen</h3>
+              <p class="step__txt" data-i18n="story.s1.txt">Echter Croissant Teig kommt ins heiße Waffeleisen. Die Butter zischt, die Schichten werden zu Gold.</p>
+            </div>
+            <div class="step" data-step="1">
+              <span class="step__num">02</span>
+              <h3 class="step__name" data-i18n="story.s2">Füllen</h3>
+              <p class="step__txt" data-i18n="story.s2.txt">Dann kommt die Füllung rein. Pistazie, Haselnuss oder Himbeere, großzügig und bis zum Rand.</p>
+            </div>
+            <div class="step" data-step="2">
+              <span class="step__num">03</span>
+              <h3 class="step__name" data-i18n="story.s3">Toppen</h3>
+              <p class="step__txt" data-i18n="story.s3.txt">Weiße Schoko, Pistazie, frische Blaubeeren. Jedes Croffle wird frisch getoppt, nichts liegt hier stundenlang rum.</p>
+            </div>
+            <div class="step" data-step="3">
+              <span class="step__num">04</span>
+              <h3 class="step__name" data-i18n="story.s4">Genießen</h3>
+              <p class="step__txt" data-i18n="story.s4.txt">Platz am Fenster, Kaffee dazu, Handy kurz weg. Okay, nach dem Foto.</p>
+            </div>
+          </div>
+          <div class="story__meter" aria-hidden="true"><b></b></div>
+        </div>
+        <div class="story__media">
+          <figure class="story__fig" data-step="0"><img src="assets/img/s3_waffeleisen.webp" srcset="assets/img/s3_waffeleisen_m.webp 960w, assets/img/s3_waffeleisen.webp 1800w" sizes="(max-width: 900px) 92vw, 46vw" alt="Croissant im heißen Waffeleisen" data-i18n-a="alt:alt.s3" loading="lazy"></figure>
+          <figure class="story__fig" data-step="1"><img src="assets/img/s4_fuellen.webp" srcset="assets/img/s4_fuellen_m.webp 960w, assets/img/s4_fuellen.webp 1800w" sizes="(max-width: 900px) 92vw, 46vw" alt="Pistaziencreme wird in ein Croissant gespritzt" data-i18n-a="alt:alt.s4" loading="lazy"></figure>
+          <figure class="story__fig story__fig--cut" data-step="2"><img src="assets/img/c4_croffle_schoko.webp" srcset="assets/img/c4_croffle_schoko_m.webp 640w, assets/img/c4_croffle_schoko.webp 1100w" sizes="(max-width: 900px) 80vw, 40vw" alt="Fertig getopptes Croffle mit Erdbeeren" data-i18n-a="alt:alt.c4b" loading="lazy"></figure>
+          <figure class="story__fig" data-step="3"><img src="assets/img/s5_fensterplatz.webp" srcset="assets/img/s5_fensterplatz_m.webp 960w, assets/img/s5_fensterplatz.webp 1800w" sizes="(max-width: 900px) 92vw, 46vw" alt="Flat White und Croissant am Fensterplatz" data-i18n-a="alt:alt.s5" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── Der Spot ───────── -->
+    <section class="spot" id="spot" aria-labelledby="spot-title">
+      <div class="spot__head">
+        <p class="label"><span>(06)</span> <span data-i18n="spot.label">Der Spot</span></p>
+        <h2 class="spot__title" id="spot-title"><span class="split-lines" data-i18n="spot.t1">Holz. Marmor.</span><span class="split-lines" data-i18n="spot.t2"><em>Große Fenster.</em></span></h2>
+      </div>
+      <div class="spot__hero">
+        <div class="spot__frame">
+          <img src="assets/img/s1_innenraum.webp" srcset="assets/img/s1_innenraum_m.webp 960w, assets/img/s1_innenraum.webp 1800w" sizes="100vw" alt="Innenraum mit Holzwänden, grauen Sitzbänken, Marmortischen und großen Fenstern" data-i18n-a="alt:alt.s1" loading="lazy">
+        </div>
+      </div>
+      <div class="spot__body">
+        <p class="spot__lead" data-i18n="spot.lead">Ein Ort, an dem du bleiben willst. Ob schneller Espresso auf dem Weg zur Arbeit oder zwei Stunden mit deinen Leuten. Wir machen den Kaffee, du machst es dir gemütlich.</p>
+        <ul class="spot__features">
+          <li><span>01</span><b data-i18n="spot.f1">Zum Bleiben</b><p data-i18n="spot.f1.txt">Sitznischen, Fensterplätze und genug Raum zum Reden.</p></li>
+          <li><span>02</span><b data-i18n="spot.f2">Zum Mitnehmen</b><p data-i18n="spot.f2.txt">Alles gibt es auch to go. Für den Weg, den Park, das Büro.</p></li>
+          <li><span>03</span><b data-i18n="spot.f3">Für deine Story</b><p data-i18n="spot.f3.txt">Licht, das jeder Kamera schmeichelt. Wir haben es getestet. Oft.</p></li>
+        </ul>
+        <div class="spot__duo">
+          <figure class="spot__fig spot__fig--a"><img src="assets/img/s2_latte_art_m.webp" alt="Barista gießt Latte Art" data-i18n-a="alt:alt.s2" loading="lazy"></figure>
+          <figure class="spot__fig spot__fig--b"><img src="assets/img/s6_matcha_bowl_m.webp" alt="Frisch aufgeschlagener Matcha in schwarzer Schale" data-i18n-a="alt:alt.s6" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── Reels ───────── -->
+    <section class="reels" id="reels" aria-labelledby="reels-title">
+      <div class="reels__head">
+        <div>
+          <p class="label label--light"><span>(07)</span> <span data-i18n="reels.label">Auf Instagram</span></p>
+          <h2 class="reels__title" id="reels-title"><span class="split-lines" data-i18n="reels.t1">Wir machen auch Content.</span><span class="split-lines" data-i18n="reels.t2"><em>Und Croissants.</em></span></h2>
+        </div>
+        <a class="btn btn--light" href="https://www.instagram.com/whataboutcoffeeberlin/" target="_blank" rel="noopener" data-magnetic data-cursor="hover"><span>@whataboutcoffeeberlin</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      </div>
+      <div class="reels__rail" data-cursor="drag" tabindex="0" aria-label="Instagram Reels, seitlich scrollen" data-i18n-a="aria-label:a11y.reels" dir="ltr">
+        <div class="reels__track"></div>
+      </div>
+    </section>
+
+    <!-- ───────── Besuch ───────── -->
+    <section class="visit" id="besuch" aria-labelledby="visit-title">
+      <div class="visit__info">
+        <p class="label"><span>(08)</span> <span data-i18n="visit.label">Komm vorbei</span></p>
+        <h2 class="visit__title" id="visit-title"><span class="split-lines">Berliner Straße 1</span><span class="split-lines"><em>14169 Berlin</em></span></h2>
+        <p class="visit__status"><span class="status-dot" data-status-dot></span><span data-status-long data-i18n="visit.loading">Öffnungszeiten werden geladen</span></p>
+        <table class="hours" aria-label="Öffnungszeiten" data-i18n-a="aria-label:a11y.hours"><tbody data-hours></tbody></table>
+        <div class="visit__actions">
+          <a class="btn btn--solid" href="https://www.google.com/maps/dir/?api=1&amp;destination=Berliner+Stra%C3%9Fe+1,+14169+Berlin" target="_blank" rel="noopener" data-magnetic data-cursor="hover"><span data-i18n="cta.route">Route planen</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          <a class="btn btn--ghost-dark" href="https://www.instagram.com/whataboutcoffeeberlin/" target="_blank" rel="noopener" data-magnetic data-cursor="hover"><span>Instagram</span></a>
+        </div>
+      </div>
+      <div class="visit__map">
+        <div class="visit__consent">
+          <svg class="visit__lines" viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g fill="none" stroke-linecap="round">
+              <path d="M-20 120 C 120 140 200 60 330 90 S 520 40 640 70" stroke="#DDCDB2" stroke-width="10"/>
+              <path d="M60 -20 C 90 120 150 220 130 440" stroke="#DDCDB2" stroke-width="8"/>
+              <path d="M-20 330 C 140 300 230 360 380 320 S 560 300 640 340" stroke="#DDCDB2" stroke-width="8"/>
+              <path d="M420 -20 C 400 100 470 200 450 440" stroke="#DDCDB2" stroke-width="7"/>
+              <path d="M220 -20 C 250 80 230 160 270 260 S 260 380 300 440" stroke="#D2BF9F" stroke-width="13"/>
+              <path d="M-20 250 C 100 230 200 225 300 210 S 480 150 640 120" stroke="#D39A55" stroke-width="15"/>
+              <path d="M520 -20 C 540 120 600 160 640 200" stroke="#DDCDB2" stroke-width="6"/>
+              <path d="M330 440 C 360 380 430 360 520 420" stroke="#DDCDB2" stroke-width="6"/>
+            </g>
+          </svg>
+          <div class="visit__pin" aria-hidden="true"><svg viewBox="8 4 84 92"><use href="#logo-tasse"/></svg></div>
+          <div class="visit__consent-box">
+            <button class="btn btn--solid visit__load" type="button" data-cursor="hover"><span data-i18n="visit.map">Karte anzeigen</span></button>
+            <p data-i18n="visit.consent">Lädt die Karte von OpenStreetMap. Dabei wird deine IP Adresse an die OpenStreetMap Foundation übertragen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ───────── Footer ───────── -->
+  <footer class="foot">
+    <div class="foot__top">
+      <p class="foot__ask" data-i18n="foot.ask">Und jetzt?<br><em>What about coffee?</em></p>
+      <a href="#top" class="foot__up" data-magnetic data-cursor="hover" aria-label="Nach oben" data-i18n-a="aria-label:a11y.up"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+    </div>
+    <div class="foot__mark" aria-hidden="true" dir="ltr"><span class="foot__word">what about coffee</span><span class="foot__q">?</span></div>
+    <div class="foot__row">
+      <a href="#top" class="foot__logo" aria-label="What about coffee? Berlin, nach oben" data-i18n-a="aria-label:a11y.logoup" data-cursor="hover"><svg viewBox="0 0 1000 356" aria-hidden="true"><use href="#logo-wac"/></svg></a>
+      <span>© 2026 What about coffee?</span>
+      <span>Berliner Straße 1, 14169 Berlin</span>
+      <span class="foot__clock">Berlin <b data-clock>00:00</b></span>
+      <span class="foot__links"><a href="#" data-cursor="hover" data-i18n="foot.imprint">Impressum</a><a href="#" data-cursor="hover" data-i18n="foot.privacy">Datenschutz</a><a href="https://www.instagram.com/whataboutcoffeeberlin/" target="_blank" rel="noopener" data-cursor="hover">Instagram</a></span>
+    </div>
+  </footer>
+
+  <!-- Logo nach dem Original (Shirt Patch, Instagram), Rahmen und Schrift folgen currentColor -->
+  <!-- logo:start (generiert von tools/logo/bau_logo.mjs) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="logo-wac" viewBox="0 0 1000 356"><path d="M551 338H8V8H992V338H773" fill="none" stroke="currentColor" stroke-width="16" stroke-linejoin="miter"/><rect x="36" y="30" width="286" height="286" fill="#61402D"/><g class="wac-cup"><path d="M165.27 131.53C156.12 116.16 174.42 103.86 165.27 93.41S158.87 77.42 168.48 70.04M180.43 127.24C171.28 108.65 189.58 93.78 180.43 81.14S174.02 61.8 183.63 52.88M195.02 131.53C185.86 116.87 204.17 105.15 195.02 95.18S188.61 79.94 198.22 72.9" fill="none" stroke="#FFEFDA" stroke-width="4.86" stroke-linecap="round"/><ellipse cx="181.86" cy="234.78" rx="102.96" ry="17.73" fill="#FFEFDA"/><ellipse cx="181.86" cy="232.49" rx="83.51" ry="10.3" fill="#61402D"/><path d="M108.93 151.55C67.46 142.97 68.89 201.6 126.09 208.75" fill="none" stroke="#FFEFDA" stroke-width="9.72" stroke-linecap="round"/><clipPath id="c3630"><path d="M103.21 141.54C106.07 201.6 124.66 227.34 153.26 227.34H210.46C239.06 227.34 257.65 201.6 260.51 141.54Z"/></clipPath><path d="M103.21 141.54C106.07 201.6 124.66 227.34 153.26 227.34H210.46C239.06 227.34 257.65 201.6 260.51 141.54Z" fill="#FFEFDA"/><g clip-path="url(#c3630)" fill="#61402D"><rect x="93.2" y="157.27" width="177.32" height="8.01"/><rect x="93.2" y="191.59" width="177.32" height="5.72"/><path d="M110.93 166.71C114.65 195.88 126.09 217.33 147.54 223.62C133.24 207.32 126.95 187.3 125.23 166.71Z"/></g><ellipse cx="181.86" cy="141.54" rx="78.65" ry="17.16" fill="#FFEFDA"/><ellipse cx="181.86" cy="142.4" rx="69.5" ry="12.01" fill="#3E1F0A"/><g transform="translate(146.11 263.09) rotate(-14)"><ellipse rx="36.61" ry="28.6" fill="#EC9A26" stroke="#5A2A08" stroke-width="4"/><path d="M-28.6 5.15C-11.44 -12.87 8.58 14.3 28.6 -3.43" fill="none" stroke="#5A2A08" stroke-width="4.86" stroke-linecap="round"/></g><g transform="translate(209.6 260.52) rotate(11)"><ellipse rx="36.61" ry="28.6" fill="#EC9A26" stroke="#5A2A08" stroke-width="4"/><path d="M-28.6 5.15C-11.44 -12.87 8.58 14.3 28.6 -3.43" fill="none" stroke="#5A2A08" stroke-width="4.86" stroke-linecap="round"/></g></g><path d="M380.30 133L357.88 133L348 41L365.98 41L371.05 99.08L376.23 41L393.37 41L398.29 99.08L403.20 41L421.39 41L411.35 133L389.30 133L384.70 88.72L380.30 133ZM456.79 133L438.49 133L438.49 41L456.79 41L456.79 73.88L465.46 73.88L465.46 41L483.76 41L483.76 133L465.46 133L465.46 91.29L456.79 91.29L456.79 133ZM518.89 133L501.01 133L509.90 41L541.11 41L549.84 133L532.43 133L531.12 118.15L520.04 118.15L518.89 133ZM524.85 56.68L521.35 103.47L529.71 103.47L525.69 56.68L524.85 56.68ZM592.03 133L573.63 133L573.63 58.67L562.70 58.67L562.70 41L602.95 41L602.95 58.67L592.03 58.67L592.03 133ZM671.75 133L653.88 133L662.76 41L693.97 41L702.70 133L685.29 133L683.99 118.15L672.90 118.15L671.75 133ZM677.71 56.68L674.21 103.47L682.57 103.47L678.55 56.68L677.71 56.68ZM744.89 133L719.96 133L719.96 41L744.89 41Q754.93 41 759.50 45.89Q764.07 50.78 764.07 62.01L764.07 62.01L764.07 66.04Q764.07 72.52 761.75 76.55Q759.42 80.57 754.66 81.83L754.66 81.83Q760.88 83.39 763.00 89.17Q765.12 94.95 765.12 103.26L765.12 103.26Q765.12 112.20 763.45 118.89Q761.77 125.58 757.38 129.29Q752.99 133 744.89 133L744.89 133ZM737.94 55.22L737.94 75.66L741.70 75.66Q744.26 75.66 744.99 73.67Q745.73 71.68 745.73 68.91L745.73 68.91L745.73 59.66Q745.73 55.22 741.81 55.22L741.81 55.22L737.94 55.22ZM739.77 116.80L739.77 116.80Q746.93 116.80 746.93 110L746.93 110L746.93 98.50Q746.93 94.58 745.75 92.31Q744.58 90.03 741.33 90.03L741.33 90.03L737.94 90.03L737.94 116.69Q739.09 116.80 739.77 116.80ZM804.75 133.84L804.75 133.84Q793.72 133.84 787.89 127.17Q782.06 120.51 782.06 107.91L782.06 107.91L782.06 64.21Q782.06 52.40 787.84 46.28Q793.61 40.16 804.75 40.16L804.75 40.16Q815.88 40.16 821.66 46.28Q827.43 52.40 827.43 64.21L827.43 64.21L827.43 107.91Q827.43 120.51 821.61 127.17Q815.78 133.84 804.75 133.84ZM804.90 116.90L804.90 116.90Q809.09 116.90 809.09 108.80L809.09 108.80L809.09 63.90Q809.09 57.10 805.01 57.10L805.01 57.10Q800.41 57.10 800.41 64.05L800.41 64.05L800.41 108.90Q800.41 113.19 801.45 115.04Q802.50 116.90 804.90 116.90ZM867.74 133.84L867.74 133.84Q856.24 133.84 850.81 127.38Q845.37 120.92 845.37 108.38L845.37 108.38L845.37 41L863.25 41L863.25 107.65Q863.25 109.95 863.51 112.06Q863.77 114.18 864.71 115.54Q865.65 116.90 867.74 116.90L867.74 116.90Q869.89 116.90 870.83 115.57Q871.77 114.23 872.00 112.09Q872.24 109.95 872.24 107.65L872.24 107.65L872.24 41L890.11 41L890.11 108.38Q890.11 120.92 884.68 127.38Q879.24 133.84 867.74 133.84ZM935.08 133L916.68 133L916.68 58.67L905.75 58.67L905.75 41L946 41L946 58.67L935.08 58.67L935.08 133ZM384.38 300.37L384.38 300.37Q367.99 300.37 358.00 290.16Q348 279.95 348 261.59L348 261.59L348 191.93Q348 169.96 356.71 158.30Q365.42 146.63 385.06 146.63L385.06 146.63Q395.79 146.63 404.15 150.57Q412.52 154.52 417.32 162.37Q422.13 170.22 422.13 182.15L422.13 182.15L422.13 208.23L392.10 208.23L392.10 185.92Q392.10 179.14 390.38 176.78Q388.67 174.43 385.06 174.43L385.06 174.43Q380.86 174.43 379.40 177.47Q377.94 180.52 377.94 185.58L377.94 185.58L377.94 261.16Q377.94 267.43 379.79 270.00Q381.63 272.57 385.06 272.57L385.06 272.57Q388.92 272.57 390.51 269.40Q392.10 266.23 392.10 261.16L392.10 261.16L392.10 233.97L422.47 233.97L422.47 262.54Q422.47 282.44 412.43 291.41Q402.39 300.37 384.38 300.37ZM479.54 300.37L479.54 300.37Q461.44 300.37 451.87 289.43Q442.30 278.49 442.30 257.82L442.30 257.82L442.30 186.09Q442.30 166.70 451.78 156.67Q461.27 146.63 479.54 146.63L479.54 146.63Q497.81 146.63 507.29 156.67Q516.77 166.70 516.77 186.09L516.77 186.09L516.77 257.82Q516.77 278.49 507.21 289.43Q497.64 300.37 479.54 300.37ZM479.80 272.57L479.80 272.57Q486.66 272.57 486.66 259.28L486.66 259.28L486.66 185.58Q486.66 174.43 479.97 174.43L479.97 174.43Q472.42 174.43 472.42 185.84L472.42 185.84L472.42 259.45Q472.42 266.48 474.13 269.53Q475.85 272.57 479.80 272.57ZM570.33 299L539.95 299L539.95 148L600.35 148L600.35 177.43L570.33 177.43L570.33 201.45L598.81 201.45L598.81 230.54L570.33 230.54L570.33 299ZM651.42 299L621.05 299L621.05 148L681.45 148L681.45 177.43L651.42 177.43L651.42 201.45L679.90 201.45L679.90 230.54L651.42 230.54L651.42 299ZM764.51 299L702.14 299L702.14 148L762.54 148L762.54 177.17L732.85 177.17L732.85 206.60L761.34 206.60L761.34 235.00L732.85 235.00L732.85 269.57L764.51 269.57L764.51 299ZM847.83 299L785.46 299L785.46 148L845.86 148L845.86 177.17L816.18 177.17L816.18 206.60L844.66 206.60L844.66 235.00L816.18 235.00L816.18 269.57L847.83 269.57L847.83 299ZM901.56 259.96L872.99 259.96L872.99 224.27Q883.71 224.27 891.39 223.16Q899.07 222.04 904.00 218.44Q908.94 214.83 911.30 207.54Q913.66 200.25 913.66 187.98L913.66 187.98Q913.66 182.40 912.24 178.20Q910.82 174.00 905.68 174.00L905.68 174.00Q901.99 174.00 900.27 176.36Q898.56 178.71 898.08 182.36Q897.61 186.01 897.61 189.95L897.61 189.95L897.61 202.48L866.21 202.48L866.21 180.69Q866.21 163.36 877.23 154.99Q888.26 146.63 905.68 146.63L905.68 146.63Q920.95 146.63 929.74 152.12Q938.54 157.61 942.27 168.12Q946 178.63 946 193.81L946 193.81Q946 208.66 941.15 220.33Q936.31 231.99 926.44 238.69Q916.57 245.38 901.56 245.38L901.56 245.38L901.56 259.96ZM902.76 298.91L872.04 298.91L872.04 273.35L902.76 273.35L902.76 298.91ZM585.48 352L571 352L571 324L584.68 324Q589.96 324 592.62 326Q595.28 328 595.28 331.28L595.28 331.28Q595.28 333.40 594.30 334.96Q593.32 336.52 591.60 337.44L591.60 337.44Q593.92 338.20 595.30 339.96Q596.68 341.72 596.68 344.36L596.68 344.36Q596.68 347.96 593.84 349.98Q591 352 585.48 352L585.48 352ZM577.44 340.20L577.44 347.12L585 347.12Q587.52 347.12 588.84 346.30Q590.16 345.48 590.16 343.68L590.16 343.68Q590.16 340.20 585 340.20L585 340.20L577.44 340.20ZM577.44 328.88L577.44 335.48L583.88 335.48Q588.76 335.48 588.76 332.16L588.76 332.16Q588.76 328.88 583.88 328.88L583.88 328.88L577.44 328.88ZM629.72 352L608.04 352L608.04 324L629.20 324L629.20 329.20L614.48 329.20L614.48 335.28L627.48 335.28L627.48 340.32L614.48 340.32L614.48 346.80L629.72 346.80L629.72 352ZM647.80 352L641.32 352L641.32 324L653.28 324Q659.12 324 662.36 326.72Q665.60 329.44 665.60 334.16L665.60 334.16Q665.60 337.28 664.10 339.54Q662.60 341.80 659.88 343L659.88 343L666.12 352L659.16 352L653.76 344.20Q653.60 344.20 653.44 344.20L653.44 344.20L647.80 344.20L647.80 352ZM647.80 329.28L647.80 339.04L653.08 339.04Q656.04 339.04 657.54 337.74Q659.04 336.44 659.04 334.16L659.04 334.16Q659.04 331.84 657.54 330.56Q656.04 329.28 653.08 329.28L653.08 329.28L647.80 329.28ZM697.68 352L677.16 352L677.16 324L683.64 324L683.64 346.72L697.68 346.72L697.68 352ZM714.24 352L707.76 352L707.76 324L714.24 324L714.24 352ZM733.72 352L727.32 352L727.32 324L732.68 324L746.60 341.04L746.60 324L753 324L753 352L747.68 352L733.72 334.96L733.72 352Z" fill="currentColor"/></symbol>
+    <symbol id="logo-tasse" viewBox="8 4 84 92"><g class="wac-cup"><path d="M45.2 35.5C42 30.13 48.4 25.83 45.2 22.17S42.96 16.58 46.32 14M50.5 34C47.3 27.5 53.7 22.3 50.5 17.88S48.26 11.12 51.62 8M55.6 35.5C52.4 30.37 58.8 26.28 55.6 22.79S53.36 17.46 56.72 15" fill="none" stroke="#FFEFDA" stroke-width="1.7" stroke-linecap="round"/><ellipse cx="51" cy="71.6" rx="36" ry="6.2" fill="#FFEFDA"/><ellipse cx="51" cy="70.8" rx="29.2" ry="3.6" fill="#61402D"/><path d="M25.5 42.5C11 39.5 11.5 60 31.5 62.5" fill="none" stroke="#FFEFDA" stroke-width="3.4" stroke-linecap="round"/><clipPath id="c00"><path d="M23.5 39C24.5 60 31 69 41 69H61C71 69 77.5 60 78.5 39Z"/></clipPath><path d="M23.5 39C24.5 60 31 69 41 69H61C71 69 77.5 60 78.5 39Z" fill="#FFEFDA"/><g clip-path="url(#c00)" fill="#61402D"><rect x="20" y="44.5" width="62" height="2.8"/><rect x="20" y="56.5" width="62" height="2"/><path d="M26.2 47.8C27.5 58 31.5 65.5 39 67.7C34 62 31.8 55 31.2 47.8Z"/></g><ellipse cx="51" cy="39" rx="27.5" ry="6" fill="#FFEFDA"/><ellipse cx="51" cy="39.3" rx="24.3" ry="4.2" fill="#3E1F0A"/><g transform="translate(38.5 81.5) rotate(-14)"><ellipse rx="12.8" ry="10" fill="#EC9A26" stroke="#5A2A08" stroke-width="1.4"/><path d="M-10 1.8C-4 -4.5 3 5 10 -1.2" fill="none" stroke="#5A2A08" stroke-width="1.7" stroke-linecap="round"/></g><g transform="translate(60.7 80.6) rotate(11)"><ellipse rx="12.8" ry="10" fill="#EC9A26" stroke="#5A2A08" stroke-width="1.4"/><path d="M-10 1.8C-4 -4.5 3 5 10 -1.2" fill="none" stroke="#5A2A08" stroke-width="1.7" stroke-linecap="round"/></g></g></symbol>
+  </svg>
+  <!-- logo:end -->
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/SplitText.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="js/i18n-data.js"></script>
+  <script src="js/karte-daten.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
