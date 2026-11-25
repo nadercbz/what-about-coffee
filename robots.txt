@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://whataboutcoffee.de/sitemap.xml
